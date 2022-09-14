@@ -119,9 +119,7 @@ export default function FormularioPeliculas(props: formularioPeliculasProps) {
                       const indice = actoresSeleccionados.findIndex(
                         (x) => x.id === actor.id
                       );
-
                       const actores = [...actoresSeleccionados];
-                      console.log([...actoresSeleccionados]);
                       actores[indice].personaje = e.currentTarget.value;
                       setActoresSeleccionados(actores);
                     }}

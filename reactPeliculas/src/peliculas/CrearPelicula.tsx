@@ -35,17 +35,15 @@ export default function CrearPeliculas() {
   async function crear(pelicula: peliculaCreacionDTO) {
     const formData = convertirPeliculaAFormData(pelicula);
 
-    console.log(pelicula);
-
     try {
-      // await axios({
-      //   method: "post",
-      //   url: urlPeliculas,
-      //   data: formData,
-      //   headers: { "Content-Type": "multipart/form-data" },
-      // }).then((respuesta: AxiosResponse<number>) => {
-      //   navigate(`/pelicula/${respuesta.data}`);
-      // });
+      await axios({
+        method: "post",
+        url: urlPeliculas,
+        data: formData,
+        headers: { "Content-Type": "multipart/form-data" },
+      }).then((respuesta: AxiosResponse<number>) => {
+        navigate(`/pelicula/${respuesta.data}`);
+      });
     } catch (error) {
       setErrores(error.response.data);
     }
